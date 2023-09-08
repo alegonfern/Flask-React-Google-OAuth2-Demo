@@ -1,5 +1,4 @@
 import os
-
 import requests
 from flask import Flask, request, jsonify
 from dotenv import load_dotenv
@@ -7,7 +6,7 @@ from flask_jwt_extended import create_access_token, JWTManager, jwt_required, ge
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 # Initialize JWTManager
 app.config['JWT_SECRET_KEY'] = 'your-secret-key'  # Replace with your own secret key
@@ -66,4 +65,6 @@ def protected():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    app.run(debug=True, host='0.0.0.0', port=5000)
+
+

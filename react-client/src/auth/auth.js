@@ -36,6 +36,7 @@ export default function Auth() {
       var loginDetails = await getUserInfo(codeResponse);
       setLoggedIn(true);
       setUser(loginDetails.user);
+     
     },
   });
 
